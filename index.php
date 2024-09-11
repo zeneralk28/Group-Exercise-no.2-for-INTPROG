@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Website</title>
-    <link rel="stylesheet" href="styles.css">
+     <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
 
     <!--font awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -16,12 +16,13 @@
     <header class="header">
         <a href="#" class="logo">Group 5</a>
 
-        <!-- <span id="toggle-button">Dark Mode</span> -->
-        <button id="toggle-button">Dark Mode</button>
-
         <div class="greeting">
             <?php include 'greeting.php'; ?>
         </div>
+
+        <!-- <span id="toggle-button">Dark Mode</span> -->
+        <button id="toggle-button">Dark Mode</button>
+
 
         <nav class="navbar">
             <a href="#anaya">Anaya</a>
@@ -281,6 +282,36 @@
     </section>
 
     <br>
+
+        <section class="message-section" id="message">
+            <h2>Send Us a Message</h2>
+            <form class="message-form" action="send_message.php" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="recipient">Recipient:</label>
+                    <select id="recipient" name="recipient" required>
+                        <option value="blank"></option>
+                        <option value="anaya">Anaya</option>
+                        <option value="adam">Adam</option>
+                        <option value="delantar">Delantar</option>
+                        <option value="masuela">Masuela</option>
+                        <option value="yulip">Yulip</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
 
     <script src="script.js"></script>
 </body>
